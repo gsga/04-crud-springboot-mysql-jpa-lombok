@@ -13,18 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tup.crud.models.Anime;
-import tup.crud.services.AnimeServiceImpl;
+import tup.crud.services.AnimeService;
 
 @RestController
-// La URL que vaya en la anotación habrá que agregarla detrás del puerto :8080 en todas las llamadas
-// a esta aplicación. Por ejemplo @RequestMapping("/anime") resultaría en lo siguiente:
-// localhost:8080/anime....   y detrás de esto habría que agregar el resto de la URL para ser RESTful.
+// La URL que vaya en la anotación habrá que agregarla detrás 
+// del puerto :8080 en todas las llamadas a esta aplicación. 
+// Por ejemplo @RequestMapping("/anime")
+// resultaría en lo siguiente:
+// localhost:8080/anime.... y detrás de esto habría que
+// agregar el resto de la URL para ser RESTful.
 // En este caso, no necesitamos nada, y queda simplemente localhost:8080
 @RequestMapping("")
 public class AnimeController {
 
     @Autowired
-    private AnimeServiceImpl animeService;
+    private AnimeService animeService;
 
     @GetMapping("/all")
     public ResponseEntity<List<Anime>> getAll() {
