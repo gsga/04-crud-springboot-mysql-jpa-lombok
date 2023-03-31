@@ -16,26 +16,13 @@ import java.util.List;
 // are provided in the iterators subpackage.
 // https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/IteratorUtils.html
 import org.apache.commons.collections4.IteratorUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tup.crud.models.Anime;
 import tup.crud.repositories.AnimeRepository;
 
-/*
- * @Service Annotation
- * In an application, the business logic resides within the service
- * layer so we use the @Service Annotation to indicate that a 
- * class belongs to that layer. It is also a specialization 
- * of @Component Annotation like the @Repository Annotation. 
- * One most important thing about the @Service Annotation 
- * is it can be applied only to classes. It is used to mark 
- * the class as a service provider. So overall @Service 
- * annotation is used with classes that provide some business 
- * functionalities. Spring context will autodetect these 
- * lasses when annotation-based configuration and classpath 
- * scanning is used.
- */
 @Service
 public class AnimeServiceImpl implements AnimeService {
 
@@ -68,7 +55,7 @@ public class AnimeServiceImpl implements AnimeService {
         // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
         // Y así llegamos a la declaración Iterator<Anime> animeIterator.
         // Este tipo tiene solo 4 métodos, y ninguno de ellos nos sirve.
-        //
+        // 
 
         Iterator<Anime> animeIterator = this.animeRepository.findAll().iterator();
         List<Anime> animeList = IteratorUtils.toList(animeIterator);
@@ -88,3 +75,4 @@ public class AnimeServiceImpl implements AnimeService {
     }
 
 }
+
